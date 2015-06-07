@@ -5,3 +5,7 @@ author: connection_lost
 description: >
              Splatoon in Minecraft
 commands:
+   splatoon:
+      permission: splatoon.admin
+      usage: |
+         /splatoon
