@@ -1,0 +1,7 @@
+name: Splatoon
+main: me.crafter.mc.splatoon.Splatoon
+version: 1.0
+author: connection_lost
+description: >
+             Splatoon in Minecraft
+commands:
