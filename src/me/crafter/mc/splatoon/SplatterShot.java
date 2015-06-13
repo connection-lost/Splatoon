@@ -37,13 +37,15 @@ public class SplatterShot {
 		ItemMeta itemmeta = item.getItemMeta();
 		try {
 			List<String> lore = itemmeta.getLore();
-			int color = Integer.parseInt(lore.get(0).split(" ")[1]);
-			int power = Integer.parseInt(lore.get(1).split(" ")[1]);
-			int firerate = Integer.parseInt(lore.get(2).split(" ")[1]);
-			int bulletspeed = Integer.parseInt(lore.get(3).split(" ")[1]);
-			int accuracy = Integer.parseInt(lore.get(4).split(" ")[1]);
+			int color = Integer.parseInt(lore.get(0).split(" ")[lore.get(0).split(" ").length-1]);
+			int power = Integer.parseInt(lore.get(1).split(" ")[lore.get(1).split(" ").length-1]);
+			int firerate = Integer.parseInt(lore.get(2).split(" ")[lore.get(2).split(" ").length-1]);
+			int bulletspeed = Integer.parseInt(lore.get(3).split(" ")[lore.get(3).split(" ").length-1]);
+			int accuracy = Integer.parseInt(lore.get(4).split(" ")[lore.get(4).split(" ").length-1]);
 			return new SplatterShot(color, power, firerate, bulletspeed, accuracy);
-		} catch (Exception ex) {}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
 		return null;
 	}
 	
@@ -54,7 +56,6 @@ public class SplatterShot {
 		} else {
 			player.setItemInHand(makeGun(player.getItemInHand(), color, power, firerate, bulletspeed, accuracy));
 		}
-		
 	}
 	
 	public static ItemStack makeGun(ItemStack original, int color, int power, int firerate, int bulletspeed, int accuracy){
@@ -63,7 +64,7 @@ public class SplatterShot {
 		lore.add(ChatColor.WHITE + "Color: " + color);
 		lore.add(ChatColor.WHITE + "Power: " + power);
 		lore.add(ChatColor.WHITE + "Fire Rate: " + firerate);
-		lore.add(ChatColor.WHITE + "Projectile Speed: " + bulletspeed);
+		lore.add(ChatColor.WHITE + "Speed: " + bulletspeed);
 		lore.add(ChatColor.WHITE + "Accuracy: " + accuracy);
 		itemmeta.setLore(lore);
 		original.setItemMeta(itemmeta);

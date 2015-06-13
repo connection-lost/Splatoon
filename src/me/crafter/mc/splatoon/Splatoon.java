@@ -19,7 +19,7 @@ public class Splatoon extends JavaPlugin {
 		
 		// Init listeners
     	PluginManager pm = getServer().getPluginManager();
-        pm.registerEvents(new SplatoonGun(), this);
+        pm.registerEvents(new SplatoonGunListener(), this);
 	}
  
 
